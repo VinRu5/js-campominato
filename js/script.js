@@ -35,13 +35,13 @@ var computerNumbers = [];
 var userNumbers = [];
 
 //inserisco una variabile per decidere il livello del gioco;
-var gameLivel = 100;
+var gameLevel = 100;
 
 //Devo far scegliere al pc 16 numeri cuasali
 while (computerNumbers.length < 16) {
 
     //estraggo il numero
-    var drawNumber = getRandomNumber(1, gameLivel);
+    var drawNumber = getRandomNumber(1, gameLevel);
 
     //verifico che sia contenuto nell'array
     if (!checkArray(computerNumbers, drawNumber)) {
@@ -49,4 +49,27 @@ while (computerNumbers.length < 16) {
     }
   
 }
-    console.log(computerNumbers);
+
+//chiedere all'utente di inserire 84 numeri
+while (userNumbers.length < 84) {
+    var userNum = parseInt(prompt('Inserisci un numero da 1 a 100'));
+    
+
+    //non può inserire più volte lo stesso numero (????)
+    
+
+
+    //verifico che il numero non sia nell'array
+    if (!checkArray(userNumbers, userNum)) {
+        //se non è nell'array(numero valido) verifico 
+        //if is in computerNumbers
+        if (checkArray(computerNumbers, userNum)){
+            alert('Hai beccato la mina!!!');
+            break;
+        } else {
+            userNumbers.push(userNum);
+        }
+    } else {
+        alert('Numero già inserito. Inserisci un altro numero');
+    }
+}

@@ -54,11 +54,13 @@ while (computerNumbers.length < 16) {
 while (userNumbers.length < 84) {
     var userNum = parseInt(prompt('Inserisci un numero da 1 a 100'));
     
+    //controllo che l'utente inserisca realmente un numero da 1 a 100
+    while (isNaN(userNum) || userNum < 1 || userNum > gameLevel) {
+        alert('Puoi inserire solo numeri da 1 a 100');
+        userNum = parseInt(prompt('Inserisci un numero da 1 a 100'));
+    }
 
     //non può inserire più volte lo stesso numero (????)
-    
-
-
     //verifico che il numero non sia nell'array
     if (!checkArray(userNumbers, userNum)) {
         //se non è nell'array(numero valido) verifico 
@@ -73,3 +75,5 @@ while (userNumbers.length < 84) {
         alert('Numero già inserito. Inserisci un altro numero');
     }
 }
+
+alert('Il tuo punteggio finale è ');

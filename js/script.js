@@ -89,5 +89,10 @@ while (userNumbers.length < (gameLevel - 16)) {
     }
 }
 
+//in caso di vittoria comunico la vittoria
+if (userNumbers.length === (gameLevel - 16)) {
+    alert('Hai vinto!!!');
+}
+
 var result = 'Il tuo punteggio finale è ' + userNumbers.length;
 alert(result);

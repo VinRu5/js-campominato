@@ -34,8 +34,29 @@ var computerNumbers = [];
 //genero un array dei numeri dell'utente 
 var userNumbers = [];
 
-//inserisco una variabile per decidere il livello del gioco;
-var gameLevel = 100;
+//chiedo all'utente il livello di difficoltà che vuole eseguire
+var chooseLevel = parseInt(prompt('Inserisci il livello di difficoltà: 0 1 2'));
+
+//verifico che l'utente sia compreso in quelli indicati
+while (isNaN(chooseLevel) || chooseLevel < 0 || chooseLevel > 2) {
+    alert('Puoi inserire solo \"0 1 2\"');
+    chooseLevel = parseInt(prompt('Inserisci il livello di difficoltà: 0 1 2'));
+}
+
+//decido il valore della variabile in base al livello del gioco;
+switch (chooseLevel) {
+    case 0:
+        var gameLevel = 100;
+        break;
+
+    case 1:
+        var gameLevel = 80;
+        break;
+
+    case 2:
+        var gameLevel = 50;
+        break;
+}
 
 //Devo far scegliere al pc 16 numeri cuasali
 while (computerNumbers.length < 16) {
@@ -51,7 +72,7 @@ while (computerNumbers.length < 16) {
 }
 
 //chiedere all'utente di inserire 84 numeri
-while (userNumbers.length < 84) {
+while (userNumbers.length < (gameLevel - 16)) {
     var userNum = parseInt(prompt('Inserisci un numero da 1 a 100'));
     
     //controllo che l'utente inserisca realmente un numero da 1 a 100

@@ -7,7 +7,7 @@ var output = document.getElementsByClassName('output')[0];
 
 var boxElement = document.getElementsByClassName('box');
 
-var numberOfBox = 96
+var numberOfBox = 96;
 
 var computerNumbers = [];
 //Devo far scegliere al pc 16 numeri cuasali
@@ -50,7 +50,7 @@ for (var x = 0; x < boxElement.length; x++) {
 
     //al click verifico che non ci sia la mina
     boxElement[x].addEventListener('click', function () {
-        this.style.background = 'green';
+        this.style.background = '#bce954';
 
         var check = parseInt(this.value);
         console.log(check);

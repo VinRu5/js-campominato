@@ -1,8 +1,17 @@
-.container {
-    border: 2ps solid black;
+
+.container-view {
+    border: 15px solid black;
+    border-radius: 50px;
+    margin: 100px auto;
+    width: 80vw;
+    padding: 50px;
 }
 
 .box {
+    width: 100%;
     height: 50px;
     border: 2px solid red;
+    margin-top: 5px;
+    background-color: rosybrown;
+    border-radius: 10px;
 }

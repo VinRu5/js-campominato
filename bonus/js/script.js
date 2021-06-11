@@ -7,14 +7,14 @@ var output = document.getElementsByClassName('output')[0];
 
 var boxElement = document.getElementsByClassName('box');
 
-
+var numberOfBox = 96
 
 var computerNumbers = [];
 //Devo far scegliere al pc 16 numeri cuasali
 while (computerNumbers.length < 16) {
 
     //estraggo il numero
-    var drawNumber = getRandomNumber(1, 24);
+    var drawNumber = getRandomNumber(1, numberOfBox);
 
     //verifico che sia contenuto nell'array
     if (!computerNumbers.includes(drawNumber)) {
@@ -31,8 +31,8 @@ while (computerNumbers.length < 16) {
 //button[randomNum].value = array[x];
 var i = 1;
 var boxNum = [];
-while (i <= 24) {
-    var randomNumb = getRandomNumber(1, 24);
+while (i <= numberOfBox) {
+    var randomNumb = getRandomNumber(1, numberOfBox);
     var randomIndex = randomNumb - 1;
 
     if (!boxNum.includes(randomNumb)) {
@@ -57,8 +57,8 @@ for (var x = 0; x < boxElement.length; x++) {
 
         if (computerNumbers.includes(check)) {
             this.style.background = 'red';
-            alert('hai beccato la mina');
-            window.location.reload();
+            //alert('hai beccato la mina');
+            //window.location.reload();
         } else {
             userNumbers.push(check);
         }

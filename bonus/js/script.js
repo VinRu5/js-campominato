@@ -42,21 +42,31 @@ while (i <= 24) {
     }
 }
 
+//creo array per caricare il punteggio dell'utente
+var userNumbers = [];
+output.innerHTML = 'il tuo punteggio è 0';
 
 for (var x = 0; x < boxElement.length; x++) {
 
+    //al click verifico che non ci sia la mina
     boxElement[x].addEventListener('click', function () {
         this.style.background = 'green';
 
         var check = parseInt(this.value);
         console.log(check);
 
-        //debugger;
         if (computerNumbers.includes(check)) {
-            alert('hai beccato la mina');
             this.style.background = 'red';
-        } 
+            alert('hai beccato la mina');
+            window.location.reload();
+        } else {
+            userNumbers.push(check);
+        }
+        // TODO: come uscire dal ciclo se becco la mina?
+        var result = userNumbers.length;
+        output.innerHTML = 'il tuo punteggio è ' + result;
     })
 }
+
 
 

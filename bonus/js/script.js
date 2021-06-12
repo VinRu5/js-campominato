@@ -12,6 +12,12 @@ var boxElement = document.getElementsByClassName('box');
 //elemento html per i messaggi
 var messageElement = document.getElementsByClassName('message')[0];
 
+//elemento html box per i messaggi
+var messageBoxElement = document.getElementsByClassName('message-box')[0];
+
+//elemento html box per lo score
+var boxScoreElement = document.getElementsByClassName('result')[0];
+
 var numberOfBox = 96;
 
 var computerNumbers = [];
@@ -63,7 +69,8 @@ for (var x = 0; x < boxElement.length; x++) {
             this.style.background = '#ff5349';
 
             //creare un avviso per dichirare la partita persa
-            messageElement.innerHTML = 'HAI PERSO!'
+            messageElement.innerHTML = 'HAI PERSO!';
+            messageBoxElement.classList.remove('d-none');
 
             //se becchi la mina non è possibile cliccare sui button
             for (var i = 0; i < boxElement.length; i++) {
@@ -83,7 +90,7 @@ for (var x = 0; x < boxElement.length; x++) {
     })
 }
 
-
+boxScoreElement.classList.remove('color');
 
 
 

@@ -17,6 +17,10 @@
 
 }
 
+.color {
+    background-color: salmon;
+}
+
 .message-box {
     position: absolute;
     transform: translate(-50% , -50%);

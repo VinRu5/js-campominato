@@ -3,9 +3,14 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//elemento html per lo score
 var output = document.getElementsByClassName('output')[0];
 
+//elemento html per i button
 var boxElement = document.getElementsByClassName('box');
+
+//elemento html per i messaggi
+var messageElement = document.getElementsByClassName('message')[0];
 
 var numberOfBox = 96;
 
@@ -24,11 +29,8 @@ while (computerNumbers.length < 16) {
 }
 
 //prendo i numeri dell'array 
-//for array[x] 
 //e li associo in modo randomico 
-//randomNum = button[x]--> button[randomNum]
 //ai button
-//button[randomNum].value = array[x];
 var i = 1;
 var boxNum = [];
 while (i <= numberOfBox) {
@@ -44,29 +46,45 @@ while (i <= numberOfBox) {
 
 //creo array per caricare il punteggio dell'utente
 var userNumbers = [];
-output.innerHTML = 'il tuo punteggio è 0';
+
 
 for (var x = 0; x < boxElement.length; x++) {
 
     //al click verifico che non ci sia la mina
     boxElement[x].addEventListener('click', function () {
-        this.style.background = '#bce954';
+        
+        //colore del button positivo
+        this.style.background = '#6aa121';
 
         var check = parseInt(this.value);
         console.log(check);
 
         if (computerNumbers.includes(check)) {
-            this.style.background = 'red';
-            //alert('hai beccato la mina');
+            this.style.background = '#ff5349';
+
+            //creare un avviso per dichirare la partita persa
+            messageElement.innerHTML = 'HAI PERSO!'
+
+            //se becchi la mina non è possibile cliccare sui button
+            for (var i = 0; i < boxElement.length; i++) {
+                boxElement[i].disabled = true;
+            }
+            
             //window.location.reload();
         } else {
-            userNumbers.push(check);
+
+            if (!userNumbers.includes(check)){
+                userNumbers.push(check);
+            }
         }
-        // TODO: come uscire dal ciclo se becco la mina?
+        
         var result = userNumbers.length;
-        output.innerHTML = 'il tuo punteggio è ' + result;
+        output.innerHTML = result;
     })
 }
+
+
+
 
 
 
